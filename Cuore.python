@@ -7,20 +7,55 @@ def curveMove():
         turtle.right(1)
         turtle.forward(1)
 
-
+# Dibujar el corazón
 def drawHeart():
-    turtle.speed(10) # La velocidad del cepillo se ajusta al máximo
-    turtle.color('red','pink')
+    turtle.speed(10)  # La velocidad del cepillo se ajusta al máximo
+    turtle.color('red', 'pink')
     turtle.begin_fill()
-    turtle.left(140) # Gire 140 grados en sentido antihorario
-    turtle.forward(111.65) # Avanzar 111,65 píxeles
-    curveMove() # Dibuja una curva
-    turtle.left(120) # Gire 120 grados en sentido antihorario
-    curveMove() # Continuar dibujando la curva
-    turtle.forward(111.65) # Avanzar 111,65 píxeles
+    turtle.left(140)
+    turtle.forward(111.65)
+    curveMove()
+    turtle.left(120)
+    curveMove()
+    turtle.forward(111.65)
     turtle.end_fill()
+
+# Dibujar un tulipán
+def drawTulip(x, y):
+    turtle.penup()
+    turtle.goto(x, y)
+    turtle.pendown()
+    turtle.color('yellow', 'orange')
+    turtle.begin_fill()
+    turtle.left(45)
+    for _ in range(2):
+        turtle.circle(50, 90)
+        turtle.right(90)
+    turtle.end_fill()
+
+    # Dibuja el tallo
+    turtle.color('green')
+    turtle.width(5)
+    turtle.right(45)
+    turtle.forward(100)
+
+# Mostrar el mensaje "Te amo Ruthy"
+def drawMessage():
+    turtle.penup()
+    turtle.goto(0, -150)  # Coloca el texto debajo del corazón
+    turtle.pendown()
+    turtle.color('blue')
+    turtle.write("Te amo Ruthy", align="center", font=("Arial", 24, "normal"))
+
+# Función principal
+def main():
+    turtle.speed(10)
+    drawHeart()
+    drawTulip(-150, 50)  # Dibujar un tulipán en la posición (-150, 50)
+    drawTulip(150, 50)   # Dibujar otro tulipán en la posición (150, 50)
+    drawMessage()  # Mostrar el mensaje "Te amo Ruthy"
     time.sleep(10)
 
 if __name__ == '__main__':
-    drawHeart()
-    
+    main()
+    turtle.done()
